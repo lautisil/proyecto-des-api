@@ -7,6 +7,7 @@ function Usuarios(props) {
             <Text>Fernando</Text>
             <Text>Miguel</Text>
             <Text>Juan</Text>
+            <Text>Pepito</Text>
         </View>
     )
 }
