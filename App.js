@@ -7,7 +7,7 @@ export default function App() {
   return (
     <View style={styles.container}>
 
-      <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center', gap:10}}>
+      <View style={styles.nav}>
 
         <Image style={{width:40 , height:40}} source={iconcarrito}/>
         <Text >C A R R I T O</Text>    
@@ -15,14 +15,7 @@ export default function App() {
       </View>
 
       <TextInput 
-      style={{borderColor:"black", 
-        borderWidth: 1, 
-        borderRadius:10, 
-        width: '90%',
-        textAlign:'center',
-        paddingVertical:10,
-        backgroundColor:"gray"
-      }} 
+      style={styles.textinput} 
       placeholder='Ingrese un producto'/>
 
       <Text>Remeras</Text>
@@ -34,11 +27,29 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
+    flex:1,
+    backgroundColor: '#ededed',
     alignItems: 'center',
     justifyContent: 'center',
+    gap:10,
+    paddingVertical:20
   },
+
+  nav: {
+    flexDirection:'row', 
+    alignItems:'center', justifyContent:'center', 
+    gap:10
+  },
+
+  textinput: {
+    borderColor:"black", 
+    borderWidth: 1, 
+    borderRadius:10, 
+    width: '90%',
+    textAlign:'center',
+    paddingVertical:10,
+    backgroundColor:"gray"
+  }
 });
 
 
