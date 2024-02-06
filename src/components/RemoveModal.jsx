@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View , Pressable, Modal } from 'react-native';
 import { useState } from 'react';
 
-
 const RemoveModal = () => {
 
     const removeItem = () => {
