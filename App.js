@@ -1,56 +1,124 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View , Image , TextInput, TouchableOpacity, Pressable } from 'react-native';
-import Usuarios from './src/components/Usuarios';
+import { StyleSheet, Text, View , Image , TextInput, Pressable, FlatList, Modal } from 'react-native';
 import iconcarrito from './assets/iconcarrito.png'
 import { useState } from 'react';
+import { StatusBar } from 'react-native';
+import Constants from 'expo-constants'
 
 export default function App() {
+              /* DATA */
+  const DATA = [
+    {
+      id:"1",
+      name: "Gorras",
+      stock:10,
+    },
+    {
+      id:"2",
+      name: "Zapatillas",
+      stock:20,
+    },
+    {
+      id:"3",
+      name: "Chamarras",
+      stock:30,
+    },
 
-  const [counter, setCounter] = useState(0)
+  ]
 
-  const handleAddCounter = () => setCounter(counter + 1)
+  const [inputValue, setInputValue] = useState('')
+  const [cartItems, setCartItems] = useState(DATA)
+  const [modalVisible, setModalVisible] = useState(false)
+  const [itemSelected, setItemSelected] = useState(null)
 
 
-  const contador = 0
+  const handleInputChange = (value) => setInputValue
+  (value);
 
+  const handleModal = (id) => {
+    setModalVisible(true);
+    setItemSelected(id);
+  }
+
+
+  const addItem = () => {
+    const newItem = {
+      name: inputValue,
+      id: new Date().getTime()
+    }
+    setCartItems([...cartItems, newItem])
+  }
+
+  const removeItem = () => {
+    const filteredArray = cartItems.filter((item)=> item.id !== itemSelected)
+    setCartItems(filteredArray)
+    setModalVisible(false)
+  }
+
+  const RemoveModal = () => {
+    return (
+      <Modal animationType='slide' transparent visible={modalVisible}>
+        <View style={styles.modalContainer}>
+          <Text style={{fontSize: 20, fontWeight:'bold'}}>Quieres eliminar el producto?</Text>
+          <Pressable onPress={()=> setModalVisible(false)}>
+            <Text>NO</Text>
+          </Pressable>
+          <Pressable onPress={removeItem}>
+            <Text>SI</Text>
+          </Pressable>
+        </View>
+      </Modal>
+    );
+  };
+
+               /* RETORNO */
   return (
     <View style={styles.container}>
 
       <View style={styles.nav}>
 
-        <Image style={{width:40 , height:40}} source={iconcarrito}/>
-        <Text style={{fontSize:25}}>C A R R I T O</Text>    
-
+        <Image 
+          style={{width:40, 
+          height:40}} 
+          source={iconcarrito}
+        />
+        
+        <Text 
+          style={{fontSize:25}}>
+          C A R R I T O
+        </Text>    
       </View>
 
+
       <View style={{flexDirection:'row'}}>
-        <TextInput 
+        <TextInput
+          onChangeText={handleInputChange}
+          value={inputValue}
           style={styles.textinput}
-          placeholder='Ingrese un producto'/>
-        
-        <TouchableOpacity>
+          placeholder='Ingrese un producto'
+        />
+        <Pressable onPress={addItem}>
           <Text style={styles.boton}>
             +
           </Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.containercategorias}>
-        <Text style= {styles.categorias}>REMERAS</Text>
-        <Text style= {styles.categorias}>PANTALONES</Text>
-        <Text style= {styles.categorias}>ZAPATILLAS</Text>
-        <Text style= {styles.categorias}>MEDIAS</Text>
-        <Text style= {styles.categorias}>GORRAS</Text>
-        <Text style= {styles.categorias}>CAMPERAS</Text>
-        <Text style= {styles.categorias}>SHORTS</Text>
-        <Text style= {styles.categorias}>BUZOS</Text>
-        <Text style= {styles.categorias}>BOXERS</Text>
+        </Pressable>
       </View>
 
-      <Pressable onPress={handleAddCounter}>
-        <Text style={{fontSize: 20}}>
-           Contador: {counter} toques
-        </Text>
-      </Pressable>
+      <RemoveModal />
+
+      <View style={styles.contcategorias}>
+        <FlatList 
+          data = {cartItems}
+          renderItem={({item}) => (
+            <View style={{width:400, flexDirection: 'row'}}>
+              <Text style={styles.categorias}>{item.name}</Text>
+              <Pressable onPress={() => handleModal(item.id)}>
+                <Text style={{fontSize:20, paddingLeft:20}}>Borrar</Text>
+              </Pressable>
+            </View>
+            )}
+            keyExtractor={(item) => item.id}
+          /> 
+      </View>
 
     </View>
   );
@@ -59,11 +127,25 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex:1,
+    alignItems:'center',
     backgroundColor: '#ededed',
+    paddingTop: Constants.statusBarHeight
+  },
+
+  modalContainer: {
+    justifyContent:'space-between',
     alignItems: 'center',
-    justifyContent: 'center',
-    gap:10,
-    paddingVertical:20
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding:30,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation:5
   },
 
   nav: {
@@ -71,6 +153,7 @@ const styles = StyleSheet.create({
     alignItems:'center', justifyContent:'center', 
     fontSize:20,
     gap:10,
+    paddingBottom:10
   },
 
   textinput: {
@@ -84,24 +167,22 @@ const styles = StyleSheet.create({
   },
 
   boton: {
-    fontSize:40,
-    width:'auto',
+    borderColor:"black", 
+    borderWidth: 1, 
+    borderRadius:10, 
+    fontSize: 50,
     padding: 5,
-    alignItems:'center',
-    justifyContent:'center'
   },
 
   categorias: {
-    fontSize: 15,
-    padding: 4
+    fontSize: 20,
+    paddingVertical:4,
   },
 
-  containercategorias: {
+  contcategorias: {
     backgroundColor: '#ededed',
-    alignItems: 'center',
-    justifyContent: 'center',
     gap:10,
-    paddingVertical:20
+    paddingVertical:10
   },
 
 });
