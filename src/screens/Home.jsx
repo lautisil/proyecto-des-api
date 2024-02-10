@@ -4,7 +4,7 @@ import Categories from "../components/Categories";
 
 function Home () {
     return (
-        <View>
+        <View style={{flex: 1}}>
             <Header title={'Inicio'}/>
             <Categories />
         </View>

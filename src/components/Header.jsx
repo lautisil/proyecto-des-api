@@ -1,11 +1,26 @@
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import {colors} from '../global/colors'
 
 function Header ({title}) {
     return (
-        <View>
-            <Text style={{fontSize: 30}}>{title}</Text>
+        <View style={styles.container}>
+            <Text style={styles.text}>{title}</Text>
         </View>
     )
 }
 
 export default Header;
+
+const styles = StyleSheet.create ({
+    container: {
+        flex: 1,
+        backgroundColor: colors.blue,
+        width: '100%',
+    },
+    text: {
+        fontSize: 30, 
+        color :'white',
+        textAlign: 'center',
+        fontWeight: 'bold',
+    }
+});
