@@ -1,9 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native'
+import Card from './Card'
 
 const CategoryItem = ({category}) => {
   return (
     <View>
-      <Text style={styles.text}>{category}</Text>
+        <Card style={{paddingTop: 10}}>
+            <Text style={styles.text}>{category}</Text>
+        </Card>
     </View>
   )
 }
