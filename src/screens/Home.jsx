@@ -2,11 +2,11 @@ import { View, Text } from "react-native";
 import Header from "../components/Header";
 import Categories from "../components/Categories";
 
-function Home () {
+function Home ({setCategorySelected}) {
     return (
         <View style={{flex: 1}}>
             <Header title={'Inicio'}/>
-            <Categories />
+            <Categories setCategorySelected={setCategorySelected}/>
         </View>
     )
 }

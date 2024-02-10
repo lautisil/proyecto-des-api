@@ -4,16 +4,16 @@ import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 
 const Search = ({ onSearch }) => {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
 
-  // handleSearch va a realizar un filtrado de los productos utilizando el valor guardado en "input"
+  // filtra los productos segun lo que este en input
   const handleSearch = () => {
     if (input) {
       onSearch(input);
     }
   };
 
-  //funcion que limpia el campo del input
+  //limpia el imput
   const removeInput = () => {
     setInput("");
   };
@@ -22,16 +22,16 @@ const Search = ({ onSearch }) => {
     <View style={styles.container}>
       <View style={styles.inputContainer}>
         <TextInput
-          style={styles.input}
-          value={input}
+          style={styles.inputSearch}
           onChangeText={setInput}
-          placeholder="Buscar producto..."
+          value={input}
+          placeholder="Nombre del producto..."
         />
         <Pressable onPress={handleSearch}>
-          <AntDesign name="search1" size={25} color="black" />
+          <AntDesign name="search1" size={35} color="black" />
         </Pressable>
         <Pressable onPress={removeInput}>
-          <Entypo name="circle-with-cross" size={25} color="black" />
+          <Entypo name="circle-with-cross" size={30} color="black" />
         </Pressable>
       </View>
     </View>
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "flex-start",
+    alignItems: "center",
   },
   inputContainer: {
     flexDirection: "row",
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     width: "90%",
     paddingTop: 10,
   },
-  input: {
+  inputSearch: {
     borderRadius: 8,
     padding: 10,
     borderWidth: 1,
