@@ -24,7 +24,13 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "fonts": {
+        "customFont": {
+          "normal": "./assets/fonts/CustomFont-Regular.ttf",
+          "bold": "./assets/fonts/CustomFont-Bold.ttf"
+        }
+      }
     }
   }
 }
