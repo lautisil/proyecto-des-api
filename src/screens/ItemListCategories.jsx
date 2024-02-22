@@ -23,7 +23,6 @@ function ItemListCategories ({navigation, route}) {
 
     return (
         <View style={styles.container}>
-            <Text style={{fontSize: 30}}>C A T E G O R I A S</Text>
 
             <Search onSearch={setKeyword}/>
 
@@ -40,10 +39,6 @@ export default ItemListCategories;
 
 const styles = StyleSheet.create({
     container: {
-      flex:1,
-      width: '100%',
-      paddingTop: '5%',
-      alignItems:'center',
-      justifyContent:'center',
+        flex: 1,
     },
 });

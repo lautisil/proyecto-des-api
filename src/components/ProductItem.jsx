@@ -22,7 +22,7 @@ const ProductItem = ({product, navigation}) => {
 
   return (
     <>
-      <Pressable onPress={()=> navigation.navigate('ItemDetail', {id: product.id})}>
+      <Pressable style={styles.pressable}onPress={()=> navigation.navigate('ItemDetail', {id: product.id})}>
         <Card style={styles.card}>
           <Text style={width < 400 ? styles.textMin : styles.text}>{product.title}</Text>
           <Image style={styles.image} source={{uri: product.images[0]}}/>
@@ -35,11 +35,22 @@ const ProductItem = ({product, navigation}) => {
 export default ProductItem;
 
 const styles = StyleSheet.create({
+  pressable: {
+    height: 100,
+    padding: 20,
+    margin: 15,
+    borderWidth: 2,
+    borderRadius: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    gap: 4
+  },
+
   card: {
     marginVertical:20,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
   },
 
   textMin: {
