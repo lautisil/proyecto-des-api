@@ -1,34 +1,50 @@
 import { useState } from 'react';
 import { useFonts } from 'expo-font';
 import Home from './src/screens/Home';
+import ItemDetail from './src/screens/ItemDetail'
 import ItemListCategories from './src/screens/ItemListCategories';
+import Constants from 'expo-constants'
 import { fonts } from './src/global/fonts';
+import { View, StyleSheet } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
-
-  const [categorySelected, setCategorySelected] = useState('')
-
   const [fontsLoaded] = useFonts(fonts);
 
+  const [categorySelected, setCategorySelected] = useState('')
+  const [productDetailId, setProductDetailId] = useState(0)
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
-    <>
-    {categorySelected ? (
-      <ItemListCategories />
-    ): (
-      <Home setCategorySelected={setCategorySelected}/>
-    )}
-    </>
+    <View style={styles.container}>
+      <StatusBar style='auto'/>
+      {productDetailId ? (
+        <ItemDetail productDetailId={productDetailId} /> 
+        )  : categorySelected ? (
+          <ItemListCategories 
+          setCategorySelected={setCategorySelected} 
+          category={categorySelected}
+          setProductDetailId={setProductDetailId}
+          />
+        ): (
+        <Home setCategorySelected={setCategorySelected}/>
+      )}
+    </View>
   )
 }
 
-/* const styles = StyleSheet.create({
+ const styles = StyleSheet.create({
   container: {
     flex:1,
     alignItems:'center',
     backgroundColor: '#ededed',
     paddingTop: Constants.statusBarHeight
   },
-
+ });
+/* 
    modalContainer: {
     justifyContent:'space-between',
     alignItems: 'center',
