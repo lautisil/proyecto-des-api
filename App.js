@@ -5,7 +5,7 @@ import ItemDetail from './src/screens/ItemDetail'
 import ItemListCategories from './src/screens/ItemListCategories';
 import Constants from 'expo-constants'
 import { fonts } from './src/global/fonts';
-import { View, StyleSheet } from 'react-native';
+import { SafeAreaView, View, StyleSheet, Platform } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
@@ -19,7 +19,7 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <StatusBar style='auto'/>
       {productDetailId ? (
         <ItemDetail productDetailId={productDetailId} /> 
@@ -32,7 +32,7 @@ export default function App() {
         ): (
         <Home setCategorySelected={setCategorySelected}/>
       )}
-    </View>
+    </SafeAreaView>
   )
 }
 
@@ -41,7 +41,7 @@ export default function App() {
     flex:1,
     alignItems:'center',
     backgroundColor: '#ededed',
-    paddingTop: Constants.statusBarHeight
+    paddingTop: Platform.OS === 'android' ? Constants.statusBarHeight : 0 ,
   },
  });
 /* 
