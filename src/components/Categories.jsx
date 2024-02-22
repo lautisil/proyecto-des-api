@@ -1,10 +1,10 @@
-import { View, Text, FlatList } from "react-native";
+import { StyleSheet, View, FlatList } from "react-native";
 import categories from '../data/categories.json'
 import CategoryItem from "./CategoryItem";
 
 function Categories({navigation}) {
     return(
-        <View>
+        <View style={styles.container}>
             <FlatList
             data={categories}
             renderItem={({item}) => (
@@ -17,3 +17,10 @@ function Categories({navigation}) {
 }
 
 export default Categories;
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      width: "100%",
+    },
+  });
