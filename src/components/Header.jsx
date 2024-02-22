@@ -13,7 +13,7 @@ export default Header;
 
 const styles = StyleSheet.create ({
     container: {
-        backgroundColor: colors.blue,
+        backgroundColor: colors.green,
         width: '100%',
     },
     text: {
