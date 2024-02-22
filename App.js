@@ -1,12 +1,7 @@
 import { useState } from 'react';
 import { useFonts } from 'expo-font';
-import Home from './src/screens/Home';
-import ItemDetail from './src/screens/ItemDetail'
-import ItemListCategories from './src/screens/ItemListCategories';
-import Constants from 'expo-constants'
 import { fonts } from './src/global/fonts';
-import { SafeAreaView, View, StyleSheet, Platform } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
+import Navigator from './src/navigation/Navigator';
 
 export default function App() {
   const [fontsLoaded] = useFonts(fonts);
@@ -18,7 +13,11 @@ export default function App() {
     return null;
   }
 
-  return (
+return ( <Navigator /> )
+}
+
+
+/*   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style='auto'/>
       {productDetailId ? (
@@ -43,7 +42,7 @@ export default function App() {
     backgroundColor: '#ededed',
     paddingTop: Platform.OS === 'android' ? Constants.statusBarHeight : 0 ,
   },
- });
+ }); */
 /* 
    modalContainer: {
     justifyContent:'space-between',

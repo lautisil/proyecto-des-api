@@ -1,9 +1,10 @@
 import { StyleSheet, Text, Image, useWindowDimensions, Pressable } from "react-native";
 import Card from "./Card";
 import { useEffect } from "react";
+import { useState } from "react";
 
-const ProductItem = ({product, setProductDetailId}) => {
-  const [isPortrait, setIsPortrait] = usestate(true);
+const ProductItem = ({product, navigation}) => {
+  const [isPortrait, setIsPortrait] = useState(true);
   const [isLandscape, setIsLandscape] = useState(false);
 
   const {width, height} = useWindowDimensions();
@@ -21,7 +22,7 @@ const ProductItem = ({product, setProductDetailId}) => {
 
   return (
     <>
-      <Pressable onPress={()=> setProductDetailId(product.id)}>
+      <Pressable onPress={()=> navigation.navigate('ItemDetail', {id: product.id})}>
         <Card style={styles.card}>
           <Text style={width < 400 ? styles.textMin : styles.text}>{product.title}</Text>
           <Image style={styles.image} source={{uri: product.images[0]}}/>

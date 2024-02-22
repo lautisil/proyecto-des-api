@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
-import { View, Text, FlatList, Pressable, StyleSheet } from "react-native";
+import { View, Text, FlatList, StyleSheet } from "react-native";
 import allProducts from '../data/products.json'
 import ProductItem from "../components/ProductItem";
 import Search from "../components/Search";
 
-function ItemListCategories ({category, setCategorySelected, setProductDetailId}) {
+function ItemListCategories ({navigation, route}) {
 
     const [products, setProducts] = useState([])
     const [keyword, setKeyword] = useState('');
 
+    const {category} = route.params;
+ 
     useEffect(() => {
         if(category) {
             const products = allProducts.filter((product) => product.category === category)
@@ -23,15 +25,11 @@ function ItemListCategories ({category, setCategorySelected, setProductDetailId}
         <View style={styles.container}>
             <Text style={{fontSize: 30}}>C A T E G O R I A S</Text>
 
-            <Pressable onPress={()=>setCategorySelected('')}>
-                <Text>Inicio</Text>
-            </Pressable>
-
             <Search onSearch={setKeyword}/>
 
             <FlatList 
             data={products}
-            renderItem={({item}) => <ProductItem product={item} setProductDetailId={setProductDetailId}/>}
+            renderItem={({item}) => <ProductItem product={item} navigation={navigation} />}
             keyExtractor={(item) => item.id}
             />
         </View>
