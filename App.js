@@ -1,19 +1,15 @@
-import { useState } from 'react';
 import { useFonts } from 'expo-font';
 import { fonts } from './src/global/fonts';
-import Navigator from './src/navigation/Navigator';
+import TapNavigator from './src/navigation/TapNavigator';
 
 export default function App() {
   const [fontsLoaded] = useFonts(fonts);
-
-  const [categorySelected, setCategorySelected] = useState('')
-  const [productDetailId, setProductDetailId] = useState(0)
 
   if (!fontsLoaded) {
     return null;
   }
 
-return ( <Navigator /> )
+return ( <TapNavigator /> )
 }
 
 

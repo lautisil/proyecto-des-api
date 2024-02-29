@@ -40,5 +40,6 @@ export default ItemListCategories;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        justifyContent: 'space-between'
     },
 });
