@@ -36,21 +36,15 @@ export default ProductItem;
 
 const styles = StyleSheet.create({
   pressable: {
-    height: 100,
     padding: 20,
     margin: 15,
     borderWidth: 2,
     borderRadius: 10,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    gap: 4
   },
 
   card: {
-    marginVertical:20,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 
   textMin: {
@@ -64,7 +58,8 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: 70,
-    height: 70,
-  }
+    width: 60,
+    height: 60,
+    marginLeft: 10, 
+  },
 });
