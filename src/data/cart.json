@@ -1,0 +1,60 @@
+[
+    {
+        "id": 50,
+        "title": "Zapatos de mujer",
+        "description": "Novedades 2020, zapatos de mujer de verano con plataforma de moda de cuero genuino",
+        "price": 36,
+        "discountPercentage": 16.87,
+        "rating": 4.33,
+        "stock": 46,
+        "brand": "Llegadas genuinas",
+        "category": "zapatos-de-mujer",
+        "thumbnail": "https://i.dummyjson.com/data/products/50/thumbnail.jpg",
+        "images": [
+            "https://i.dummyjson.com/data/products/50/1.jpeg",
+            "https://i.dummyjson.com/data/products/50/2.jpg",
+            "https://i.dummyjson.com/data/products/50/3.jpg"
+        ],
+        "quantity": 2
+    },
+    {
+        "id": 66,
+        "title": "Relojes de pareja analógicos de acero",
+        "description": "Diseño elegante, elegante, único y moderno, uso cómodo",
+        "price": 35,
+        "discountPercentage": 3.23,
+        "rating": 4.79,
+        "stock": 24,
+        "brand": "Relojes del Este",
+        "category": "relojes-para-mujer",
+        "thumbnail": "https://i.dummyjson.com/data/products/66/thumbnail.jpg",
+        "images": [
+            "https://i.dummyjson.com/data/products/66/1.jpg",
+            "https://i.dummyjson.com/data/products/66/2.jpg",
+            "https://i.dummyjson.com/data/products/66/3.jpg",
+            "https://i.dummyjson.com/data/products/66/4.JPG",
+            "https://i.dummyjson.com/data/products/66/thumbnail.jpg"
+        ],
+        "quantity": 1
+    },
+    {
+        "id": 97,
+        "title": "Flor de cerámica de metal",
+        "description": "Araña de flores de cerámica de metal Iluminación para el hogar Lámpara colgante con iluminación colgante vintage americana",
+        "price": 35,
+        "discountPercentage": 10.94,
+        "rating": 4.93,
+        "stock": 146,
+        "brand": "Ifei Home",
+        "category": "iluminación",
+        "thumbnail": "https://i.dummyjson.com/data/products/97/thumbnail.jpg",
+        "images": [
+            "https://i.dummyjson.com/data/products/97/1.jpg",
+            "https://i.dummyjson.com/data/products/97/2.jpg",
+            "https://i.dummyjson.com/data/products/97/3.jpg",
+            "https://i.dummyjson.com/data/products/97/4.webp",
+            "https://i.dummyjson.com/data/products/97/thumbnail.jpg"
+        ],
+        "quantity": 3
+    }
+]
