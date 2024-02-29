@@ -2,10 +2,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import ShopStack from '../navigation/ShopStack'
 import CartStack from './CartStack';
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Text, View } from "react-native"
 import { colors } from '../global/colors';
-import { Feather, Fontisto } from '@expo/vector-icons';
-import { View, Text } from 'react-native';
+import { Feather, Entypo, FontAwesome } from '@expo/vector-icons';
+import OrdersStack from './OrderStack';
 
 
 const TapNavigator = () => {
@@ -20,16 +20,12 @@ const TapNavigator = () => {
                 tabBarStyle: styles.tabBar
             }}>
                 <Tab.Screen name="ShockStack" component={ShopStack
-                } options={{tabBarIcon: ({focused})=> {
+                } options={{
+                    tabBarIcon: ({focused})=> {
                     return (
                         <View style={styles.tabContainer}>
-                            <Fontisto name="shopping-store" size={28} color="black" />
-                            <Text style={{color:
-                                focused ?
-                                 'black' :
-                                  'grey'
-                                  }}
-                                  >S H O P</Text>
+                          <Entypo name="shop" size={30} color={focused ? "black" : "grey"} />
+                          <Text style={{ color: focused ? "black" : "grey" }}>S H O P</Text>
                         </View>
                     )
                 }}}
@@ -50,6 +46,24 @@ const TapNavigator = () => {
                         </View>
                     )
                 }}}
+                />
+                <Tab.Screen
+                  name="OrdersTab"
+                  component={OrdersStack}
+                  options={{
+                    tabBarIcon: ({ focused }) => {
+                      return (
+                        <View style={styles.tabContainer}>
+                          <FontAwesome
+                            name="list-ul"
+                            size={30}
+                            color={focused ? "black" : "grey"}
+                          />
+                          <Text style={{ color: focused ? "black" : "grey" }}>Orders</Text>
+                        </View>
+                      );
+                    },
+                  }}
                 />
             </Tab.Navigator>
         </NavigationContainer>
