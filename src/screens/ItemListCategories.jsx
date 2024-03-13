@@ -10,7 +10,8 @@ function ItemListCategories({ navigation }) {
   const [products, setProducts] = useState([]);
   const [keyword, setKeyword] = useState("");
 
-  const category = useSelector((state)=> state.shopReducer.value.categorySelected);
+  const category = useSelector((state)=> state.shopReducer.value.categorySelected)
+  
   const { data: productsFilteredByCategory, isLoading, error} = useGetProductsByCategoryQuery(category)
 
   useEffect(() => {
