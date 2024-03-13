@@ -12,7 +12,6 @@ const TapNavigator = () => {
     const Tab = createBottomTabNavigator()
 
     return (
-        <NavigationContainer>
             <Tab.Navigator
             screenOptions={{
                 headerShown: false,
@@ -66,7 +65,6 @@ const TapNavigator = () => {
                   }}
                 />
             </Tab.Navigator>
-        </NavigationContainer>
     )
 }
 
