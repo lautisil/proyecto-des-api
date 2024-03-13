@@ -2,7 +2,7 @@ import { FlatList, StyleSheet, Text, View } from "react-native"
 import CategoryItem from "./CategoryItem"
 import Counter from "./Counter"
 import { useSelector } from "react-redux"
-import { useGetCategoriesQuery } from "../services/shopService";
+import { useGetCategoriesQuery } from "../services/shopService"
 
 
 function Categories({ navigation }) {

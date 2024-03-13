@@ -8,9 +8,9 @@ export default configureStore({
   reducer: {
     counterReducer,
     shopReducer,
-    [shopApi.reducerPath] : shopApi.reducer,
+    [shopApi.reducerPath]: shopApi.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(shopApi.middleware),
-})
+});
 
 setupListeners(configureStore.dispatch)

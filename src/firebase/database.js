@@ -1,1 +1,1 @@
-export const base_url = "https://console.firebase.google.com/u/0/project/desarrollo-des-api/database/desarrollo-des-api-default-rtdb/data/~2F"
+export const base_url = "https://desarrollo-des-api-default-rtdb.firebaseio.com/"
