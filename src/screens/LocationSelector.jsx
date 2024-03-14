@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Location from "expo-location"
+import MapPreview from '../components/MapPreview';
 
 const LocationSelector = () => {
   const [location, setLocation] = useState({ latitude: "", longitude: "" })
@@ -28,8 +29,10 @@ return (
       {location.latitude ? (
         <View style={styles.noLocationContainer}>
           <Text>
-            Lat: {location.latitude}, long: {location.longitude}
+            Lat: {location.latitude},
+            long: {location.longitude}
           </Text>
+          <MapPreview location={location}/>
           </View>
           ) : (
         <Text>{error}</Text>
