@@ -4,11 +4,16 @@ export const authSlice = createSlice({
     name: "auth",
     initialState: {
       value: {
-        user: true,
+        user: null,
         token: null,
         imageCamera: null,
-        localId: "Pedro",
+        localId: null,
         profileImage: null,
+        location: {
+          latitude: null,
+          longitude: null,
+          address: null
+        },
       },
     },
     reducers: {
@@ -30,10 +35,27 @@ export const authSlice = createSlice({
             ...state.value,
             profileImage: action.payload,
           }
+        },
+        setUserLocation: (state, action) => {
+          state.value = {
+            ...state.value,
+            location: {
+              latitude: action.payload.latitude,
+              longitude: action.payload.longitude,
+              address: action.payload.address,
+            },
+          }
         }
       }
     })
 
-export const { setUser, clearUser, setCameraImage, setProfileImage } = authSlice.actions
+    export const {
+      setUser,
+      clearUser,
+      setCameraImage,
+      setProfileImage,
+      setUserLocation 
+    } = authSlice.actions;
+
 
 export default authSlice.reducer
