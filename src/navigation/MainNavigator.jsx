@@ -1,13 +1,23 @@
 import { StyleSheet, Text, View } from "react-native"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import TabNavigator from "./TapNavigator"
 import AuthStack from "./AuthStack"
 import { NavigationContainer } from "@react-navigation/native"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { useGetProfileImageQuery } from "../services/shopService"
+import { setProfileImage } from "../features/auth/authSlice"
 
 const MainNavigator = () => {
+  const {user, localId} = useSelector(state => state.authReducer.value)
+  const {data, error, isLoading} = useGetProfileImageQuery(localId)
+  const dispatch = useDispatch()
 
-  const user = useSelector(state => state.authReducer.value.user)
+  useEffect(()=> {
+    if(data) {
+      console.log(data.image);
+      dispatch(setProfileImage(data.image))
+    }
+  }, [data])
 
   return (
     <NavigationContainer>
@@ -16,8 +26,8 @@ const MainNavigator = () => {
        <AuthStack />
        }
     </NavigationContainer>
-  );
-};
+  )
+}
 
 export default MainNavigator
 

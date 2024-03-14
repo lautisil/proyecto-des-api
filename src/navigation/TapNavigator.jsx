@@ -4,7 +4,7 @@ import ShopStack from '../navigation/ShopStack'
 import CartStack from './CartStack'
 import { StyleSheet, Text, View } from "react-native"
 import { colors } from '../global/colors'
-import { Entypo, AntDesign, FontAwesome, Ionicons } from "@expo/vector-icons"
+import { Entypo, Feather, FontAwesome, Ionicons } from "@expo/vector-icons"
 import OrdersStack from './OrderStack'
 import MyProfileStack from "./MyProfileStack"
 
