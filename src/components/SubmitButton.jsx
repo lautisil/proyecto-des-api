@@ -24,6 +24,6 @@ const styles = StyleSheet.create({
     text: {
         color: 'white',
         fontFamily: 'InterRegular',
-        fontSize: 22
+        fontSize: 23
     },
 })
