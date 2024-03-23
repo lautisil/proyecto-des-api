@@ -45,7 +45,21 @@ export const authSlice = createSlice({
               address: action.payload.address,
             },
           }
-        }
+        },
+        logout: (state) => {
+          state.value = {
+            user: null,
+            token: null,
+            imageCamera: null,
+            localId: null,
+            profileImage: null,
+            location: {
+              latitude: null,
+              longitude: null,
+              address: null,
+            },
+          };
+        },
       }
     })
 
@@ -54,7 +68,8 @@ export const authSlice = createSlice({
       clearUser,
       setCameraImage,
       setProfileImage,
-      setUserLocation 
+      setUserLocation,
+      logout,
     } = authSlice.actions;
 
 

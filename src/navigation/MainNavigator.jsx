@@ -14,6 +14,17 @@ const MainNavigator = () => {
 
   const dispatch = useDispatch()
 
+  useEffect(() => {
+    (async () => {
+      try {
+        const session = await fetchSession()
+        console.log(session)
+      } catch (error) {
+        console.log(error.message)
+      }
+    })()
+  }, [])
+
   useEffect(()=> {
     if(data) {
       console.log(data.image);

@@ -7,6 +7,7 @@ import { setUser } from "../features/auth/authSlice"
 import { useLoginMutation } from "../services/authService"
 import { loginSchema } from "../validations/loginSchema"
 import { colors } from "../global/colors"
+import { insertSession } from "../db"
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("")
@@ -21,6 +22,13 @@ const Login = ({ navigation }) => {
     console.log(result);
     if (result.data) {
       dispatch(setUser(result.data))
+      insertSession({
+        email: result.data.email,
+        localId: result.data.localId,
+        token: result.data.idToken
+      })
+      .then((result) => console.log(result))
+      .catch(err => console.log(err.message))
     }
   }, [result])
 
