@@ -56,9 +56,6 @@ const Login = ({ navigation }) => {
         onChange={setPassword}
         isSecure={true}
       />
-      <Pressable onPress={() => navigation.navigate("Signup")} style={styles.button}>
-        <Text style={styles.text}>Go to register</Text>
-      </Pressable>
       {
       result.isLoading ? (
         <ActivityIndicator size="large" color="#0000ff"
@@ -67,6 +64,9 @@ const Login = ({ navigation }) => {
           <SubmitButton title={"Login"} onPress={onSubmit} />
         )
       }
+      <Pressable onPress={() => navigation.navigate("Signup")} style={styles.button}>
+        <Text style={styles.text}>Go to register</Text>
+      </Pressable>
     </View>
   )
 }

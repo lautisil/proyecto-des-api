@@ -79,11 +79,11 @@ const Signup = ({navigation}) => {
         onChange={setConfirmPassword}
         isSecure={true}
       />
+      <SubmitButton  title={"Register"} onPress={onSubmit} />
       <Pressable onPress={() => navigation.navigate("Login")}
       style={styles.button}>
         <Text style={styles.text}>Go to Login</Text>
       </Pressable>
-      <SubmitButton  title={"Register"} onPress={onSubmit} />
     </View>
   )
 }
